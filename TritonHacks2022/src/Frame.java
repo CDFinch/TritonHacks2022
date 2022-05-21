@@ -20,9 +20,9 @@ import javax.swing.JPanel;
 import java.awt.Graphics2D;
 
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
-	Random rnd = new Random();
+	Random rnd = new Random();//a
 	Background background = new Background(0, 0);
-
+	int currentFish = 1; 
 	String current = "Fish1";
 
 	ArrayList<Fish> fishes = new ArrayList<Fish>();
@@ -45,12 +45,12 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		g.setColor(Color.BLACK);
 		g.setFont(new Font("Fish", Font.BOLD, 20));
 
-		g.drawString("Goldfish Population: ", 1010, 40);
+		g.drawString("Goldfish Population: " + Fish.numType1, 1010, 40);
 
-		g.drawString("Tropical Fish Population: ", 1010, 70);
+		g.drawString("Tropical Fish Population: " + + Fish.numType2, 1010, 70);
 		g.drawString("Tropical Fish Kills: ", 1010, 90);
 
-		g.drawString("Shark Population: ", 1010, 120);
+		g.drawString("Shark Population: " + + Fish.numType3, 1010, 120);
 		g.drawString("Shark Kills: ", 1010, 140);
 		g2.setStroke(new BasicStroke(5));
 
@@ -101,19 +101,21 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 
 		if (mx >= 1010 && mx < 1100 && my >= 320 && my <= 380) {
             current = "Fish1";
-
+            currentFish = 1; 
 
         }
 
         if (mx >= 1100 && mx < 1190 && my >= 320 && my <= 380) {
             current = "Fish2";
+            currentFish = 2;
         }
 
         if (mx >= 1190 && mx < 1280 && my >= 320 && my <= 380) {
             current = "Fish3";
+            currentFish = 3; 
         }
         if (mx >= 1010 && mx < 1270 && my >= 412 && my <= 460) {
-            fishes.add(new Fish(rnd.nextInt((1000) + 1),rnd.nextInt((625) + 1),1));
+            fishes.add(new Fish(rnd.nextInt((1000) + 1),rnd.nextInt((625) + 1),currentFish));
             System.out.println("spawn");
         }
 

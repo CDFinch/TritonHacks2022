@@ -43,7 +43,7 @@ public class Fish {
 	static int numType3 = 0;
 	double scale;
 //	boolean right = true; 
-//	boolean down = true; 
+//	boolean down = true; s
 	
 	public Fish(int x, int y, int type) {
 		tx = AffineTransform.getTranslateInstance(x, y);

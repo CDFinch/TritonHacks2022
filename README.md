@@ -20,7 +20,9 @@ Many different Java Libraries weee used, including Random, Color, ArrayList, Tim
 ## Authors and Contributors
 
 William Pan - williamlpan22@gmail.com
+
 Zachary Brower - zbrower03@gmail.com
+
 Jeffery Wen 
 
 This project was coded at a high school hackathon called TritionHacks at UCSD from 5/21/2022 to 5/22/2022. 

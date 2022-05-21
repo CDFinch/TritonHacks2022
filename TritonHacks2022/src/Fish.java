@@ -38,6 +38,7 @@ public class Fish {
 	private Image img;
 	int width;
 	int height;
+	double multiplier;
 	static int numFish = 0;
 	static int numType1 = 0;
 	static int numType2 = 0;
@@ -85,6 +86,7 @@ public class Fish {
 			width = (int) (746 * 0.2);
 			height = (int) (328 * 0.2);
 		}
+		multiplier = 1;
 		numFish++;
 
 	}
@@ -107,13 +109,15 @@ public class Fish {
 		move.setRepeats(true);
 
 	}
-
+	public void incrMultiplier() {
+		multiplier += 0.2;
+	}
 	public void paint(Graphics g) {
 		// these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;
 
-		x += vx;
-		y += vy;
+		x += vx * multiplier;
+		y += vy * multiplier;
 
 //		vx = rnd.nextInt((3 + 3 ) + 1) - 3 ; // [-20, 20]
 //		vy = rnd.nextInt((3 + 3 ) + 1) - 3 ; // [-20, 20]

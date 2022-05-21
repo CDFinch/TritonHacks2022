@@ -40,7 +40,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			
 			
 			test.paint(g);
-//			test.move();
+			test.move();
 			
 			g2.setStroke(new BasicStroke(5));
 			g.setColor(Color.BLACK);

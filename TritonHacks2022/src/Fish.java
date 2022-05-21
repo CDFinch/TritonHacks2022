@@ -27,12 +27,16 @@ import javax.swing.JPanel;
 
 public class Fish {
 	Random rnd = new Random();
-	int x = 250; 
-	int y = 250 ; 
-	int vx = 2; 
-	int vy = 2; 
+	double x = 300; 
+	double y = 200 ; 
+	double vx = 3; 
+	double vy = 3; 
+	double accx = -.1; 
+	double accy = -.1; 
 	private AffineTransform tx;
 	private Image img; 	
+//	boolean right = true; 
+//	boolean down = true; 
 	
 	public Fish(int x, int y) {
 		
@@ -44,12 +48,17 @@ public class Fish {
 	}
 	
 	
-	Timer move = new Timer(5000, new ActionListener() {
+	
+	
+	
+	
+	
+	Timer move = new Timer(1000, new ActionListener() {
         @Override
 
         public void actionPerformed(ActionEvent arg0) {
-        	vx = rnd.nextInt((5 + 5 ) + 1) - 5 ; // [-20, 20]
-    		vy = rnd.nextInt((5 + 5 ) + 1) - 5 ; // [-20, 20]
+        	vx = rnd.nextInt((3 + 3 ) + 1) - 3 ; // [-20, 20]
+    		vy = rnd.nextInt((3 + 3 ) + 1) - 3 ; // [-20, 20]
 
         }
     });
@@ -58,17 +67,14 @@ public class Fish {
 	public void move() { 
 		move.start(); 
 		move.setRepeats(true); 
-	}
 	
+	} 
 	public void paint(Graphics g) {
 		//these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;
 		
-		x+= vx; 
-		y+= vy; 
-		
-		
-		
+		x += vx; 
+		y += vy; 
 		
 		
 		

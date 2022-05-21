@@ -14,7 +14,7 @@ public class Fish {
 	
 	public Fish(int x, int y) {
 		
-			img = getImage("/imgs/Fish.png" ); //load the image for Treessssssss
+			img = getImage("/imgs/tropicalFish.png" ); //load the image for Treessssssss
 			tx = AffineTransform.getTranslateInstance(x, y ); 
 			init(x, y); 				//initialize the location of the image
 			
@@ -41,14 +41,14 @@ public class Fish {
 	private void update() {
 
 		tx.setToTranslation(x, y);
-		tx.scale(1, 1);
+		tx.scale(0.2, 0.2);
 		 
 		
 	}
 	
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);
-		tx.scale(1, 1);
+		tx.scale(0.2, 0.2);
 	}
 	
 	private Image getImage(String path) {

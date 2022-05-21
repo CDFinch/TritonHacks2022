@@ -18,13 +18,12 @@ import java.awt.event.ActionListener;
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener{
 	
 	Background background = new Background(0,0);
-	Fish fish = new Fish(0,0);
-	
-	
+	Fish test = new Fish(0,0);
 		public void paint(Graphics g) {
 			super.paintComponent(g);
 			background.paint(g);
-			fish.paint(g);
+			
+			test.paint(g);
 		}
 	
 

@@ -17,11 +17,11 @@ import java.awt.event.ActionListener;
 	import javax.swing.JPanel;
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener{
 	
-
+	Background background = new Background(0,0);
 		
 		public void paint(Graphics g) {
 			super.paintComponent(g);
-			
+			background.paint(g);
 		}
 	
 
@@ -35,7 +35,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		public Frame() {
 			
 			JFrame f = new JFrame("Temp");
-			f.setSize(new Dimension(960,540));
+			f.setSize(new Dimension(1000,625));
 			f.setBackground(Color.blue);
 			f.add(this);
 			f.setResizable(false);

@@ -7,10 +7,10 @@ Small Goldfish
 ![Goldfish](https://i.postimg.cc/k4F0pMFv/lilFish.png)
 
 Tropical Fish
-![Tropical Fish](https://i.postimg.cc/ZKrbhZb2/tropical-Fish.png)
+![Tropical Fish](https://i.postimg.cc/jq1cr0gH/tropical-Fish.png)
 
 Apex Predator Shark
-![Sharks](https://i.postimg.cc/cJJ0YnRG/shark.png)
+![Sharks](https://i.postimg.cc/65RmjpW2/shark.png)
 
 Coral Reef Background
 ![Reef](https://i.postimg.cc/gj3WdqW8/Reef.jpg)

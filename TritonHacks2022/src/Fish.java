@@ -35,19 +35,45 @@ public class Fish {
 	double accy = -.1; 
 	private AffineTransform tx;
 	private Image img; 	
-	int width = 149; 
-	int height = 66; 
+	int width; 
+	int height; 
+	static int numFish = 0;
+	static int numType1 = 0;
+	static int numType2 = 0;
+	static int numType3 = 0;
+	double scale;
 //	boolean right = true; 
 //	boolean down = true; 
 	
-	public Fish(int x, int y) {
-		
-			img = getImage("/imgs/tropicalFish.png" ); //load the image for Treessssssss
-			tx = AffineTransform.getTranslateInstance(x, y ); 
-			init(x, y); 				//initialize the location of the image
-			
-			//use your variabless
-	}
+	public Fish(int x, int y, int type) {
+		switch(type){
+		case 1: img = getImage("/imgs/lilFish.png" ); 
+				numType1++;
+				scale = 0.05;
+				width  = img.getWidth(null);
+				height = img.getHeight(null);
+			 break;
+		case 2: img = getImage("/imgs/tropicalFish.png" ); 
+				numType2++;
+				scale = 0.2;
+				width  = img.getWidth(null);
+				height = img.getHeight(null);
+			 break;
+		case 3: img = getImage("/imgs/shark.png" ); 
+				numType3++;
+				scale = 0.5;
+				width  = img.getWidth(null);
+				height = img.getHeight(null);
+			 break;
+		default: img = getImage("/imgs/tropicalFish.png" ); 
+				scale = 0.2;
+				width  = img.getWidth(null);
+				height = img.getHeight(null);
+		}
+		numFish++;
+		tx = AffineTransform.getTranslateInstance(x, y ); 
+		init(x, y);
+			}
 	
 	
 	
@@ -109,14 +135,14 @@ public class Fish {
 	private void update() {
 
 		tx.setToTranslation(x, y);
-		tx.scale(0.2, 0.2);
+		tx.scale(scale, scale);
 		 
 		
 	}
 	
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);
-		tx.scale(0.2, 0.2);
+		tx.scale(scale, scale);
 	}
 	
 	private Image getImage(String path) {

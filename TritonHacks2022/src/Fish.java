@@ -25,10 +25,11 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.JPanel;
 import java.awt.image.ImageObserver;
+
 public class Fish {
 	Random rnd = new Random();
-	double x = 300;
-	double y = 200;
+	private double x = 300;
+	private double y = 200;
 	double vx = 3;
 	double vy = 3;
 	double accx = -.1;
@@ -44,50 +45,49 @@ public class Fish {
 	double scale;
 //	boolean right = true; 
 //	boolean down = true; s
-	
+
 	public Fish(int x, int y, int type) {
 		tx = AffineTransform.getTranslateInstance(x, y);
 		init(x, y);
 		switch (type) {
 		case 1:
-			this.x = x; 
-			this.y = y; 
+			this.x = x;
+			this.y = y;
 			img = getImage("/imgs/lilFish.png");
 			numType1++;
 			scale = 0.03;
-			width = (int) (1920 * 0.03); 
-			height = (int) (1120 * 0.03);
+			width = (int) (1920 * scale);
+			height = (int) (1120 * scale);
 			break;
 		case 2:
-			this.x = x; 
-			this.y = y; 
+			this.x = x;
+			this.y = y;
 			img = getImage("/imgs/tropicalFish.png");
 			numType2++;
-			scale = 0.2;
-			width = (int) (746 * 0.2);
-			height = (int) (328 * 0.2);
+			scale = 0.1456753;
+			width = (int) (746 * scale);
+			height = (int) (328 * scale);
 			break;
 		case 3:
-			this.x = x; 
-			this.y = y; 
+			this.x = x;
+			this.y = y;
 			img = getImage("/imgs/shark.png");
 			numType3++;
-			scale = 0.5;
-			width =  (int) (1024 * 0.5);
-			height = (int) (326 * 0.5) ;
+			scale = 0.3;
+			width = (int) (1024 * scale);
+			height = (int) (326 * scale);
 			break;
 		default:
-			this.x = x; 
-			this.y = y; 
+			this.x = x;
+			this.y = y;
 			img = getImage("/imgs/tropicalFish.png");
 			scale = 0.2;
 			width = (int) (746 * 0.2);
 			height = (int) (328 * 0.2);
 		}
 		numFish++;
-		
+
 	}
-	
 
 	Timer move = new Timer(1000, new ActionListener() {
 		@Override
@@ -95,7 +95,7 @@ public class Fish {
 		public void actionPerformed(ActionEvent arg0) {
 			vx = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
 			vy = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
-			
+
 			System.out.println(width);
 			System.out.println(height);
 		}
@@ -127,7 +127,7 @@ public class Fish {
 		if (y < 0) {
 			y = 0;
 		}
-		if (y  > 625 - height) {
+		if (y > 625 - height) {
 			y = 625 - height;
 		}
 
@@ -161,12 +161,19 @@ public class Fish {
 		return tempImage;
 	}
 
-//	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
-//
-//		
-//		
-//		
-//	}
+	public double getX() {
+		return x;
+	}
 
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
 }

@@ -38,9 +38,34 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			fishes.get(i).move();
 		}
 		
+//		for(int first = 0; first< fishes.size()-1;first++) {
+//			Fish temp1 = fishes.get(first);
+//			for(int second = 1; second < fishes.size()-2;second++) {
+//				Fish temp2 = fishes.get(second);
+//				if(temp1.getX() < temp2.getX()+temp2.width  
+//						&& temp1.getX()+temp1.width > temp2.getX()
+//						&& temp1.getY() < temp2.getY()+temp2.height
+//						&& temp1.getY()+ temp1.height> temp2.getY()){
+//					System.out.println("hit");
+//					fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
+//				}
+//			}
+//		}
+		
 		for(int first = 0; first< fishes.size();first++) {
-			
+			Fish temp1 = fishes.get(first);
+			for(int second = first + 1 ; second < fishes.size();second++) {
+				Fish temp2 = fishes.get(second);
+				if(temp1.getX() + temp1.width >= temp2.getX() 
+						&& (temp1.getX() <= temp2.getX()+temp2.width)
+						&& temp1.getY() + temp1.height >= temp2.getY()
+						&& temp1.getY() <= temp2.getY()+temp2.height) {
+					System.out.println("hit");
+					
+				}
+			}
 		}
+		
 		
 		g.setColor(Color.BLACK);
 		g.setFont(new Font("Fish", Font.BOLD, 20));
@@ -77,7 +102,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	public Frame() {
 		fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
 		fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
-
+		fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
+		fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
 		JFrame f = new JFrame("Temp");
 		f.setSize(new Dimension(1520, 700));
 		f.setBackground(Color.blue);

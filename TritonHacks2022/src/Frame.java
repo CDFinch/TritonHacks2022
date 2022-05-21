@@ -24,6 +24,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			background.paint(g);
 			
 			test.paint(g);
+			test.move();
 		}
 	
 
@@ -37,7 +38,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		public Frame() {
 			
 			JFrame f = new JFrame("Temp");
-			f.setSize(new Dimension(1000,625));
+			f.setSize(new Dimension(1300,625));
 			f.setBackground(Color.blue);
 			f.add(this);
 			f.setResizable(false);

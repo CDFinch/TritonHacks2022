@@ -106,6 +106,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			 if(mx >= 1190 && mx < 1280 && my >= 80 && my <= 140 ) { 
 				 current = "Fish3";
 			 }
+			 
+			 
 		}
 
 		@Override

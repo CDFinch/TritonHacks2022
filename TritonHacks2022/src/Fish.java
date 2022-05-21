@@ -35,6 +35,8 @@ public class Fish {
 	double accy = -.1; 
 	private AffineTransform tx;
 	private Image img; 	
+	int width = 149; 
+	int height = 66; 
 //	boolean right = true; 
 //	boolean down = true; 
 	
@@ -78,7 +80,21 @@ public class Fish {
 		y += vy; 
 		
 		
+//		vx = rnd.nextInt((3 + 3 ) + 1) - 3 ; // [-20, 20]
+//		vy = rnd.nextInt((3 + 3 ) + 1) - 3 ; // [-20, 20]
 		
+		if(x + width > 1000) { 
+			x = 1000-width  ; 
+		}
+		if( x < 0 ) { 
+			x = 0   ; 
+		}
+		if( y < 0 ) { 
+			y = 0   ; 
+		}
+		if( y + height > 625 ) { 
+			y = 625 - height  ;
+		}
 		
 		
 		//call update to update the actually picture location

@@ -4,12 +4,15 @@
 We coded a fish simulation game where there are three types of fish: Goldfish, Tropical Fish, and Sharks. The game initally starts with 10 goldfish, 3 tropical fish, and 1 shark. When the same type of fish collide with each other (ie: goldfish with goldfish), they make a baby and create a new fish of their own type. When the tropical fish collides with a goldfish, the tropical fish "eats" the goldfish and the goldfish dissapears. When the shark collides with smaller fish, the shark also eats that fish. The background of the simulation is a coral reef. 
 
 Small Goldfish
+
 ![Goldfish](https://i.postimg.cc/k4F0pMFv/lilFish.png)
 
 Tropical Fish
+
 ![Tropical Fish](https://i.postimg.cc/jq1cr0gH/tropical-Fish.png)
 
 Apex Predator Shark
+
 ![Sharks](https://i.postimg.cc/65RmjpW2/shark.png)
 
 Coral Reef Background

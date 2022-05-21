@@ -65,6 +65,7 @@ public class Fish {
 	
 	
 	public void move() { 
+		move.setInitialDelay(0);
 		move.start(); 
 		move.setRepeats(true); 
 	

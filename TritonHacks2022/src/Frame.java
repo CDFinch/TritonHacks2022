@@ -27,10 +27,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 
 	ArrayList<Fish> fishes = new ArrayList<Fish>();
 
-	public void spawn() {
-		fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
-	}
-
+	
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
@@ -39,9 +36,12 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		for (int i = 0; i < fishes.size(); i++) {
 			fishes.get(i).paint(g);
 			fishes.get(i).move();
-
 		}
-
+		
+		for(int first = 0; first< fishes.size();first++) {
+			
+		}
+		
 		g.setColor(Color.BLACK);
 		g.setFont(new Font("Fish", Font.BOLD, 20));
 
@@ -54,19 +54,19 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		g.drawString("Shark Kills: ", 1010, 140);
 		g2.setStroke(new BasicStroke(5));
 
-		// g.drawString("Current Fish: " + current, 1050, 30 );
+		g.drawString("Current Fish: " + current, 1050, 300 );
 
-//			g.drawRect(1010, 50, 80, 50);s
-//			g.drawString("Fish1", 1020, 80);
-//			
-//			g.drawRect(1100, 50, 80, 50);
-//			g.drawString("Fish2", 1110, 80);
-//			
-//			g.drawRect(1190, 50, 80, 50);
-//			g.drawString("Fish3", 1200, 80);
-//			
-//			g.drawRect(1115, 120, 100, 50);
-//			g.drawString("Spawn", 1130, 150);
+        g.drawRect(1010, 320, 80, 50);
+        g.drawString("Fish1", 1020, 350);
+
+        g.drawRect(1100, 320, 80, 50);
+        g.drawString("Fish2", 1110, 350);
+
+        g.drawRect(1190, 320, 80, 50);
+        g.drawString("Fish3", 1200, 350);
+        
+        g.drawRect(1010, 380, 260, 50);
+        g.drawString("Spawn", 1110, 410);
 	}
 
 	public static void main(String[] arg) {
@@ -99,20 +99,24 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		int my = (int) arg0.getY();
 		System.out.println(mx + " " + my);
 
-		if (mx >= 1010 && mx < 1100 && my >= 80 && my <= 140) {
-			current = "Fish1";
-		}
+		if (mx >= 1010 && mx < 1100 && my >= 320 && my <= 380) {
+            current = "Fish1";
 
-		if (mx >= 1100 && mx < 1190 && my >= 80 && my <= 140) {
-			current = "Fish2";
-		}
 
-		if (mx >= 1190 && mx < 1280 && my >= 80 && my <= 140) {
-			current = "Fish3";
-		}
-		if (mx >= 1120 && mx < 1220 && my >= 150 && my <= 200) {
-			spawn();
-		}
+        }
+
+        if (mx >= 1100 && mx < 1190 && my >= 320 && my <= 380) {
+            current = "Fish2";
+        }
+
+        if (mx >= 1190 && mx < 1280 && my >= 320 && my <= 380) {
+            current = "Fish3";
+        }
+        if (mx >= 1010 && mx < 1270 && my >= 412 && my <= 460) {
+            fishes.add(new Fish(0,0,1));
+            System.out.println("spawn");
+        }
+
 
 	}
 

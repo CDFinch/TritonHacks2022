@@ -24,7 +24,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.JPanel;
-
+import java.awt.image.ImageObserver;
 public class Fish {
 	Random rnd = new Random();
 	double x = 300;
@@ -44,40 +44,42 @@ public class Fish {
 	double scale;
 //	boolean right = true; 
 //	boolean down = true; 
-
+	
 	public Fish(int x, int y, int type) {
+		tx = AffineTransform.getTranslateInstance(x, y);
+		init(x, y);
 		switch (type) {
 		case 1:
 			img = getImage("/imgs/lilFish.png");
 			numType1++;
-			scale = 0.05;
-			width = img.getWidth(null);
-			height = img.getHeight(null);
+			scale = 0.03;
+			width = (int) (1920 * 0.03); 
+			height = (int) (1120 * 0.03);
 			break;
 		case 2:
 			img = getImage("/imgs/tropicalFish.png");
 			numType2++;
 			scale = 0.2;
-			width = img.getWidth(null);
-			height = img.getHeight(null);
+			width = (int) (746 * 0.2);
+			height = (int) (328 * 0.2);
 			break;
 		case 3:
 			img = getImage("/imgs/shark.png");
 			numType3++;
 			scale = 0.5;
-			width = img.getWidth(null);
-			height = img.getHeight(null);
+			width =  (int) (1024 * 0.5);
+			height = (int) (326 * 0.5) ;
 			break;
 		default:
 			img = getImage("/imgs/tropicalFish.png");
 			scale = 0.2;
-			width = img.getWidth(null);
-			height = img.getHeight(null);
+			width = (int) (746 * 0.2);
+			height = (int) (328 * 0.2);
 		}
 		numFish++;
-		tx = AffineTransform.getTranslateInstance(x, y);
-		init(x, y);
+		
 	}
+	
 
 	Timer move = new Timer(1000, new ActionListener() {
 		@Override
@@ -85,7 +87,9 @@ public class Fish {
 		public void actionPerformed(ActionEvent arg0) {
 			vx = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
 			vy = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
-
+			
+			System.out.println(width);
+			System.out.println(height);
 		}
 	});
 
@@ -115,7 +119,7 @@ public class Fish {
 		if (y < 0) {
 			y = 0;
 		}
-		if (y + height > 625) {
+		if (y  > 625 - height) {
 			y = 625 - height;
 		}
 

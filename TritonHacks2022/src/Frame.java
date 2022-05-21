@@ -113,7 +113,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
             current = "Fish3";
         }
         if (mx >= 1010 && mx < 1270 && my >= 412 && my <= 460) {
-            fishes.add(new Fish(0,0,1));
+            fishes.add(new Fish(rnd.nextInt((1000) + 1),rnd.nextInt((625) + 1),1));
             System.out.println("spawn");
         }
 

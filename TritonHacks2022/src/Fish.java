@@ -50,6 +50,8 @@ public class Fish {
 		init(x, y);
 		switch (type) {
 		case 1:
+			this.x = x; 
+			this.y = y; 
 			img = getImage("/imgs/lilFish.png");
 			numType1++;
 			scale = 0.03;
@@ -57,6 +59,8 @@ public class Fish {
 			height = (int) (1120 * 0.03);
 			break;
 		case 2:
+			this.x = x; 
+			this.y = y; 
 			img = getImage("/imgs/tropicalFish.png");
 			numType2++;
 			scale = 0.2;
@@ -64,6 +68,8 @@ public class Fish {
 			height = (int) (328 * 0.2);
 			break;
 		case 3:
+			this.x = x; 
+			this.y = y; 
 			img = getImage("/imgs/shark.png");
 			numType3++;
 			scale = 0.5;
@@ -71,6 +77,8 @@ public class Fish {
 			height = (int) (326 * 0.5) ;
 			break;
 		default:
+			this.x = x; 
+			this.y = y; 
 			img = getImage("/imgs/tropicalFish.png");
 			scale = 0.2;
 			width = (int) (746 * 0.2);

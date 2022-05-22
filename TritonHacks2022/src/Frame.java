@@ -23,7 +23,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Random rnd = new Random();//a
 	Background background = new Background(0, 0);
 	int currentFish = 1; 
-	String current = "Fish1";
+	String current = "Goldfish";
 	String one = "";
 	String two = ""; 
 	String three = ""; 
@@ -183,13 +183,14 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		g.drawString("Current Fish: " + current, 1050, 300 );
 
         g.drawRect(1010, 320, 80, 50);
-        g.drawString("Fish1", 1020, 350);
+        g.drawString("Goldfish", 1020, 350);
 
         g.drawRect(1100, 320, 80, 50);
-        g.drawString("Fish2", 1110, 350);
+        g.drawString("Tropical ", 1110, 345);
+        g.drawString("Fish ", 1120, 360);
 
         g.drawRect(1190, 320, 80, 50);
-        g.drawString("Fish3", 1200, 350);
+        g.drawString("Shark", 1200, 350);
         
         g.drawRect(1010, 380, 260, 50);
         g.drawString("Spawn", 1110, 410);
@@ -234,18 +235,18 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		System.out.println(mx + " " + my);
 
 		if (mx >= 1010 && mx < 1100 && my >= 320 && my <= 380) {
-            current = "Fish1";
+            current = "Goldfish";
             currentFish = 1; 
 
         }
 
         if (mx >= 1100 && mx < 1190 && my >= 320 && my <= 380) {
-            current = "Fish2";
+            current = "Tropical Fish";
             currentFish = 2;
         }
 
         if (mx >= 1190 && mx < 1280 && my >= 320 && my <= 380) {
-            current = "Fish3";
+            current = "Shark";
             currentFish = 3; 
         }
         if (mx >= 1010 && mx < 1270 && my >= 412 && my <= 460) {

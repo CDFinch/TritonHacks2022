@@ -111,8 +111,7 @@ public class Fish {
 			vx = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
 			vy = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
 
-			System.out.println(width);
-			System.out.println(height);
+			
 		}
 	});
 	

@@ -27,11 +27,13 @@ The player can also interfere with the simulation and decide to spawn certain fi
 
 With this simulation it is possible to get an insight on the effect of human interaction on aquatic ecosystems. Not only can the humans completely unbalance the ecosystem, but also have the ability to reintroduce species and restore balance to the ecosystem if some random circumstance causes issues.
 
+Additionally there are buttons to speed up the overall speed of the simulation, although it has been seen to be inconsitant, not fully debugged and generally not as refined as desired and we do not reccomend excessive use of the feature. 
+
 ## Code and Format
 
 This simulation was coded in the Java Language in the Eclipse IDE, It is shipped and exported as a runnable Java Executable for use on any Java supported Platform.
 
-The resolution size of the UI interface is 1520 X 720 pixels. 
+The resolution size of the UI interface is 1300 X 650 pixels. 
 
 Many different Java Libraries were used, including AWT, Util, and Swing, in order to implement graphics and  logic calculations for velocity and timing.
 

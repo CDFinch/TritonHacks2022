@@ -23,7 +23,7 @@ The population count of each type of fish is displayed in the UI screen to the r
 
 The fish are coded to move randomly and switch directions at random times.  
 
-The player can also interfere with the game and decide to spawn certain fish whenever they want by pressing buttons. Press the type of fish you want to spawn, and then press the "spawn" button. 
+The player can also interfere with the simulation and decide to spawn certain fish whenever they want by pressing buttons. Press the type of fish you want to spawn, and then press the "spawn" button. 
 
 ## Code and Format
 

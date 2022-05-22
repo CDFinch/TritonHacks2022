@@ -123,7 +123,7 @@ public class Fish {
 		@Override
 
 		public void actionPerformed(ActionEvent arg0) {
-			vx = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
+			vx = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]s
 			vy = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
 			
 			while(vx == 0 || vy == 0 ) { 

@@ -24,6 +24,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Background background = new Background(0, 0);
 	int currentFish = 1; 
 	String current = "Fish1";
+	String one = "";
+	String two = ""; 
+	String three = ""; 
+	
 
 	ArrayList<Fish> fishes = new ArrayList<Fish>();
 
@@ -37,6 +41,13 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			fishes.get(i).paint(g);
 			fishes.get(i).move();
 		}
+		
+		g.setColor(Color.BLACK);
+		g.setFont(new Font("Fish", Font.BOLD, 15));
+
+		g.drawString(one, 1020, 500);
+		//g.drawString(two, 1020, 550);
+		//g.drawString(three, 1020, 600);
 		
 //		for(int first = 0; first< fishes.size()-1;first++) {
 //			Fish temp1 = fishes.get(first);
@@ -63,6 +74,31 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 					if((temp1.getType() == 1 && temp2.getType() == 2) || 
 							(temp1.getType() == 2 && temp2.getType() == 3) ) {
 						fishes.remove(first);
+						if(temp1.getType() == 1 ) { 
+							Fish.numType1--; 
+							
+							if(temp2.getType() == 2 ) { 
+								one = "A Tropical Fish Has Eaten A Goldfish!";
+								three = two;
+								two = one; 
+								 
+							}
+							if(temp2.getType() == 3 ) { 
+								one = "A Shark Has Eaten A Tropical Fish!";
+								two = one; 
+								three = two; 
+							}
+							
+						}
+						if(temp1.getType() == 2 ) { 
+							Fish.numType2--; 
+							if(temp2.getType() == 3 ) { 
+								one = "A Shark Has Eaten A Tropical Fish!";
+								two = one; 
+								three = two; 
+							}
+						}
+					
 						//Fish.kills++; 
 						
 						
@@ -71,6 +107,27 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 							|| (temp1.getType() == 3 && temp2.getType() == 2)) {
 						fishes.remove(second);
 						//Fish.kills++; 
+						if(temp2.getType() == 1 ) { 
+							Fish.numType1--; 
+							if(temp1.getType() == 2 ) { 
+								one = "A Tropical Fish Has Eaten A Goldfish!";
+								two = one; 
+								three = two; 
+							}
+							if(temp1.getType() == 3 ) { 
+								one = "A Shark Has Eaten A Tropical Fish!";
+								two = one; 
+								three = two; 
+							}
+						}
+						if(temp2.getType() == 2 ) { 
+							Fish.numType2--; 
+							if(temp1.getType() == 3 ) { 
+								one = "A Shark Has Eaten A Tropical Fish!";
+								two = one; 
+								three = two; 
+							}
+						}
 					}
 					
 					
@@ -85,9 +142,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		}
 		
 		
-		g.setColor(Color.BLACK);
-		g.setFont(new Font("Fish", Font.BOLD, 20));
-
+		
+		
+		
 		g.drawString("Goldfish Population: " + Fish.numType1, 1010, 40);
 
 		g.drawString("Tropical Fish Population: " + + Fish.numType2, 1010, 70);
@@ -121,7 +178,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		for(int i =0; i < 20; i++) {
 			fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
 		}
-		for(int i =0; i < 3; i++) {
+		for(int i =0; i < 5; i++) {
 			fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 2));
 		}
 		fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 3));
@@ -129,7 +186,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 		
 		JFrame f = new JFrame("Temp");
-		f.setSize(new Dimension(1520, 700));
+		f.setSize(new Dimension(1520, 650));
 		f.setBackground(Color.blue);
 		f.add(this);
 		f.setResizable(false);
@@ -166,7 +223,20 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
         }
         if (mx >= 1010 && mx < 1270 && my >= 412 && my <= 460) {
             fishes.add(new Fish(rnd.nextInt((1000) + 1),rnd.nextInt((625) + 1),currentFish));
-            System.out.println("spawn");
+            switch(currentFish) { 
+            case 1: one = "You Have Spawned A Goldfish!"; 
+            two = one; 
+			three = two; 
+            break; 
+            case 2: one = "You Have Spawned A Tropical Fish!"; 
+            two = one; 
+			three = two; 
+            break; 
+            case 3: one = "You Have Spawned A Shark!"; 
+            two = one; 
+			three = two; 
+            break; 
+            }
         }
 
 

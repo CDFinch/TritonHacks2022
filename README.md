@@ -1,7 +1,7 @@
 # TritonHacks2022 Project - Fish Simulation
 
 ## Description
-We coded a fish simulation where there are three types of fish: Goldfish, Tropical Fish, and Sharks. The game initally starts with 10 goldfish, 3 tropical fish, and 1 shark. When the same type of fish collide with each other (ie: goldfish with goldfish), they make a baby and create a new fish of their own type. When the tropical fish collides with a goldfish, the tropical fish "eats" the goldfish and the goldfish dissapears. When the shark collides with smaller fish, the shark also eats that fish. The background of the simulation is a coral reef. 
+We coded a fish simulation where there are three types of fish: Goldfish, Tropical Fish, and Sharks. The simulation initally starts with 10 goldfish, 3 tropical fish, and 1 shark. When the same type of fish collide with each other (ie: goldfish with goldfish), they make a baby and create a new fish of their own type. When the tropical fish collides with a goldfish, the tropical fish "eats" the goldfish and the goldfish dissapears. When the shark collides with smaller fish, the shark also eats that fish. The background of the simulation is a coral reef. 
 
 Small Goldfish
 

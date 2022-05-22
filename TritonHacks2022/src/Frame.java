@@ -22,14 +22,27 @@ import java.awt.Graphics2D;
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
 	Random rnd = new Random();//a
 	Background background = new Background(0, 0);
+	Background bar = new Background(1000,0,0);
 	int currentFish = 1; 
 	String current = "Goldfish";
 	String one = "";
 	String two = ""; 
 	String three = ""; 
-	Fish goldfish = new Fish(1020, 330,1); 
-	Fish tropicalFish = new Fish(1105, 330,4); 
-	Fish shark = new Fish(1190, 335,5); 
+	int currentFishToDraw = 7; 
+	
+	
+	Fish goldfish1 = new Fish(1210, 30,1); 
+	Fish tropicalFish1 = new Fish(1200, 70,4); 
+	
+	Fish shark1 = new Fish(1125, 120,6); 
+	
+	Fish goldfish = new Fish(1020, 220,1); 
+	Fish tropicalFish = new Fish(1105, 220,4); 
+	Fish shark = new Fish(1190, 225,5); 
+	
+	Fish triton = new Fish(1080, 475, 8);
+	
+//	Fish currentA = new Fish (1185, 280, currentFishToDraw);
 	//Fish tropicalFish = new Fish(1020)ss
 	
 	
@@ -40,7 +53,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		@Override
 		
 		public void actionPerformed(ActionEvent arg0) {
-			
+			if(Fish.getNumType1() >= 2 )
 			fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
 		}
 	});
@@ -49,6 +62,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		@Override
 		
 		public void actionPerformed(ActionEvent arg0) {
+			if(Fish.getNumType2() >= 2 )
 			fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 2));
 		}
 	});
@@ -62,17 +76,64 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 
 	}
 	
-	
+	Timer die2 = new Timer(2000, new ActionListener() {
+        @Override
+
+        public void actionPerformed(ActionEvent arg0) {
+            for (int i = 0; i < fishes.size(); i++) {
+                if (fishes.get(i).getType() == 2) {
+                    fishes.remove(i);
+                    Fish.numType2--;
+                    break;
+
+                }
+            }
+        }
+    });
+
+    Timer die3 = new Timer(4000, new ActionListener() {
+        @Override
+
+        public void actionPerformed(ActionEvent arg0) {
+            for (int i = 0; i < fishes.size(); i++) {
+                if (fishes.get(i).getType() == 3) {
+                    fishes.remove(i);
+                    Fish.numType3--;
+                    break;
+
+                }
+            }
+
+        }
+    });
 	
 	
 	public void paint(Graphics g) {
+		//System.out.println("speed " + Fish.multiplier);
+		Fish currentA = new Fish (1185, 280, currentFishToDraw);
+		Fish currentB = new Fish (1030, 280, currentFishToDraw);
 		super.paintComponent(g);
+		bar.paint(g);
 		Graphics2D g2 = (Graphics2D) g;
 		background.paint(g);
 		goldfish.paint(g);
+		goldfish1.paint(g);
+		tropicalFish1.paint(g);
+		shark1.paint(g);
 		tropicalFish.paint(g);
 		shark.paint(g);
+		currentA.paint(g);
+		currentB.paint(g);
+		triton.paint(g);
 
+		if (Fish.getNumType1() == 0) {
+            die2.start();
+        }
+        if (Fish.getNumType2() == 0) {
+            die3.start();
+        }
+		
+		
 		for (int i = 0; i < fishes.size(); i++) {
 			fishes.get(i).paint(g);
 			fishes.get(i).move();
@@ -81,7 +142,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		g.setColor(Color.BLACK);
 		g.setFont(new Font("Fish", Font.BOLD, 15));
 
-		g.drawString(one, 1020, 500);
+		
+		//chatlog
+		
+		
 		//g.drawString(two, 1020, 550);
 		//g.drawString(three, 1020, 600);
 		
@@ -193,29 +257,80 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 
 		g.drawString("Shark Population: " + + Fish.numType3, 1010, 130);
 		g.drawString("Shark Kills: " + Fish.numKills3 , 1010, 150);
+		
+		g.setFont(new Font("Fish", Font.ITALIC, 20));
+		
+		g.drawString("Select Fish To Spawn!" , 1010, 200);
+		
+		
+		
+		
 		g2.setStroke(new BasicStroke(5));
 
-        g.drawRect(1010, 320, 80, 50);
+		g.drawString("Speed: " + Fish.multiplier, 1010, 360);
+		
+		g.drawRect(1015, 370, 125, 50);
+		g.drawRect(1150, 370, 120, 50);
+		
+		g.setFont(new Font("Fish", Font.ITALIC, 18));
+		
+		g.drawString("Speed Up!" , 1030, 405);
+		g.drawString("Speed Down!" , 1155, 405);
+		
+		g.setFont(new Font("Fish", Font.ITALIC|Font.BOLD, 15));
+		Color lb = new Color(255,132,13, 255);
+		g.setColor(lb);
+		g.drawString(one, 1010, 450);
+		
+		
+		
+		g.setColor(Color.BLACK);
+		if(currentFishToDraw == 7 ) { 
+			g.setColor(lb);
+		}
+		
+        g.drawRect(1010, 210, 80, 50);
+        
        // g.drawString("Goldfish", 1020, 350);
-
-        g.drawRect(1100, 320, 80, 50);
+        g.setColor(Color.BLACK);
+        
+        if(currentFishToDraw == 4 ) { 
+			g.setColor(lb);
+		}
+        
+        g.drawRect(1100, 210, 80, 50);
         //g.drawString("Tropical ", 1110, 345);
         //g.drawString("Fish ", 1120, 360);
 
-        g.drawRect(1190, 320, 80, 50);
+        g.setColor(Color.BLACK);
+        
+        if(currentFishToDraw == 5 ) { 
+			g.setColor(lb);
+		}
+        
+        g.drawRect(1190, 210, 80, 50);
         //g.drawString("Shark", 1200, 350);
         
-        g.drawRect(1010, 380, 260, 50);
-        g.drawString("Spawn", 1110, 410);
+        
+        g.setColor(Color.BLACK);
+        
+        g.drawRect(1010, 270, 260, 50);
+        g.drawString("Spawn!", 1110, 300);
+        
+        
+        
+        g.setColor(Color.BLACK);
 	}
 
+	
+	
 	public static void main(String[] arg) {
 		Frame f = new Frame();
 		
 	}
 
 	public Frame() {
-		Fish.numType1--;
+		Fish.numType1-= 2;
 		reproduce();
 		for(int i =0; i < 20; i++) {
 			fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
@@ -246,24 +361,27 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	public void mouseClicked(MouseEvent arg0) {
 		int mx = (int) arg0.getX();
 		int my = (int) arg0.getY();
-		System.out.println(mx + " " + my);
+		//System.out.println(mx + " " + my);
 
-		if (mx >= 1010 && mx < 1100 && my >= 320 && my <= 380) {
+		if (mx >= 1010 && mx < 1100 && my >= 210 && my <= 270) {
             current = "Goldfish";
             currentFish = 1; 
+            currentFishToDraw = 7; 
 
         }
 
-        if (mx >= 1100 && mx < 1190 && my >= 320 && my <= 380) {
+        if (mx >= 1100 && mx < 1190 && my >= 210 && my <= 270) {
             current = "Tropical Fish";
             currentFish = 2;
+            currentFishToDraw = 4; 
         }
 
-        if (mx >= 1190 && mx < 1280 && my >= 320 && my <= 380) {
+        if (mx >= 1190 && mx < 1280 && my >= 210 && my <= 270) {
             current = "Shark";
             currentFish = 3; 
+            currentFishToDraw = 5; 
         }
-        if (mx >= 1010 && mx < 1270 && my >= 412 && my <= 460) {
+        if (mx >= 1010 && mx < 1270 && my >= 302 && my <= 350) {
             fishes.add(new Fish(rnd.nextInt((1000) + 1),rnd.nextInt((625) + 1),currentFish));
             switch(currentFish) { 
             case 1: one = "You Have Spawned A Goldfish!"; 
@@ -279,6 +397,20 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			three = two; 
             break; 
             }
+        }
+        
+        if(mx >= 1015 && mx < 1140 && my >= 400 && my <= 450) { 
+        	if(Fish.multiplier <= 3) {
+        	Fish.multiplier += .2; 
+        	//System.out.println("here"); 
+        	}
+        }
+        
+        if(mx >= 1150 && mx < 1270 && my >= 400 && my <= 450) {
+        	
+        	if(Fish.multiplier >= .4) {
+        	Fish.multiplier -= .2; 
+        	}
         }
 
 

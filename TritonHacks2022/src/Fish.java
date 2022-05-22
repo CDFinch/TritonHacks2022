@@ -39,7 +39,7 @@ public class Fish {
 	private Image img;
 	int width;
 	int height;
-	double multiplier;
+	static double multiplier = 1;
 	double spdMultiplier; 
 	private int type;
 	static int numFish = 0;
@@ -103,18 +103,41 @@ public class Fish {
 			img = getImage("/imgs/sharkS.png");
 			scale = 1;
 			break; 
-			 
-		default:
-			this.type = 2;
+		case 6: 
+			this.type = 6;
 			this.x = x;
 			this.y = y;
-			img = getImage("/imgs/tropicalFish.png");
-			scale = 0.2;
-			width = (int) (746 * 0.2);
-			height = (int) (328 * 0.2);
+			img = getImage("/imgs/sharkR.png");
+			scale = .15;
+			break; 
+		case 7: 
+			this.type = 7;
+			this.x = x;
+			this.y = y;
+			img = getImage("/imgs/lilFishR.png");
+			scale = .03;
+			break; 
+			
+			
+		case 8: 
+			this.type = 8;
+			this.x = x;
+			this.y = y;
+			img = getImage("/imgs/tritonhacks.png");
+			scale = 1;
+			break; 
+			 
+//		default:
+//			this.type = 2;
+//			this.x = x;
+//			this.y = y;
+//			img = getImage("/imgs/tropicalFish.png");
+//			scale = 0.2;
+//			width = (int) (746 * 0.2);
+//			height = (int) (328 * 0.2);
 			
 		}
-		multiplier = 1;
+		
 		numFish++;
 
 	}
@@ -270,4 +293,66 @@ public class Fish {
 	public int getType() {
 		return type;
 	}
+	
+	public static int getNumType1() {
+		return numType1;
+	}
+
+
+
+
+
+
+
+
+	public static void setNumType1(int numType1) {
+		Fish.numType1 = numType1;
+	}
+
+
+
+
+
+
+
+
+	public static int getNumType2() {
+		return numType2;
+	}
+
+
+
+
+
+
+
+
+	public static void setNumType2(int numType2) {
+		Fish.numType2 = numType2;
+	}
+
+
+
+
+
+
+
+
+	public static int getNumType3() {
+		return numType3;
+	}
+
+
+
+
+
+
+
+
+	public static void setNumType3(int numType3) {
+		Fish.numType3 = numType3;
+	}
+	
+	
+	
 }

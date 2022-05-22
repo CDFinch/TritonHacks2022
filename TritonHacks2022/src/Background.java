@@ -19,6 +19,11 @@ public class Background{
 		init(x, y); 				//initialize the location of the image
 									//use your variables
 	}	
+	public Background(int x, int y, int ohnoj4opbh) {
+		img = getImage("/imgs/gradientbar.png"); 
+		tx = AffineTransform.getTranslateInstance(x, y );
+		init(x, y); 	
+	}
 
 	
 	public void paint(Graphics g) {

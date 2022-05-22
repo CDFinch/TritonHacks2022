@@ -31,7 +31,7 @@ This simulation was coded in the Java Language in the Eclipse IDE, although any 
 
 The resolution size of the UI interface is 1520 X 720 pixels. 
 
-Many different Java Libraries weee used, including Random, Color, ArrayList, Timer, Graphic, Graphic 2D, ActionEvent, KeyEvent, and many more. 
+Many different Java Libraries were used, including Random, Color, ArrayList, Timer, Graphic, Graphic 2D, ActionEvent, KeyEvent, and many more. 
 
 ## Authors and Contributors
 

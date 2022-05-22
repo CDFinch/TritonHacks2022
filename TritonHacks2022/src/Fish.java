@@ -40,11 +40,14 @@ public class Fish {
 	int width;
 	int height;
 	double multiplier;
+	double spdMultiplier; 
 	private int type;
 	static int numFish = 0;
 	static int numType1 = 0;
 	static int numType2 = 0;
 	static int numType3 = 0;
+	static int numKills2; 
+	static int numKills3; 
 	double scale;
 //	boolean right = true; 
 //	boolean down = true; s
@@ -62,6 +65,7 @@ public class Fish {
 			scale = 0.03;
 			width = (int) (1920 * scale);
 			height = (int) (1120 * scale);
+			spdMultiplier = 1.7; 
 			break;
 		case 2:
 			this.type = 2;
@@ -72,6 +76,7 @@ public class Fish {
 			scale = 0.1456753;
 			width = (int) (746 * scale);
 			height = (int) (328 * scale);
+			spdMultiplier = 1.2; 
 			break;
 		case 3:
 			this.type = 3;
@@ -82,6 +87,7 @@ public class Fish {
 			scale = 0.3;
 			width = (int) (1024 * scale);
 			height = (int) (326 * scale);
+			spdMultiplier = .8; 
 			break;
 		default:
 			this.type = 2;
@@ -91,13 +97,26 @@ public class Fish {
 			scale = 0.2;
 			width = (int) (746 * 0.2);
 			height = (int) (328 * 0.2);
+			
 		}
 		multiplier = 1;
 		numFish++;
 
 	}
 	
-	Timer move = new Timer(1000, new ActionListener() {
+	Timer move = new Timer( rnd.nextInt((3000 -1000) + 1) + 1000, new ActionListener() {
+		@Override
+
+		public void actionPerformed(ActionEvent arg0) {
+			vx = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
+			vy = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
+
+			System.out.println(width);
+			System.out.println(height);
+		}
+	});
+	
+	Timer reproduce = new Timer( 2000, new ActionListener() {
 		@Override
 
 		public void actionPerformed(ActionEvent arg0) {
@@ -118,6 +137,9 @@ public class Fish {
 	public void incrMultiplier() {
 		multiplier += 0.2;
 	}
+	
+	
+	
 	public void paint(Graphics g) {
 		// these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;
@@ -148,8 +170,8 @@ public class Fish {
 			break;
 			}
 		}
-		x += vx * multiplier;
-		y += vy * multiplier;
+		x += vx * multiplier * spdMultiplier;
+		y += vy * multiplier * spdMultiplier;
 
 //		vx = rnd.nextInt((3 + 3 ) + 1) - 3 ; // [-20, 20]
 //		vy = rnd.nextInt((3 + 3 ) + 1) - 3 ; // [-20, 20]

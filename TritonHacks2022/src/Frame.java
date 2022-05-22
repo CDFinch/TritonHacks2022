@@ -31,6 +31,34 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 
 	ArrayList<Fish> fishes = new ArrayList<Fish>();
 
+	Timer reproduce1 = new Timer( 500, new ActionListener() {
+		@Override
+		
+		public void actionPerformed(ActionEvent arg0) {
+			
+			fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
+		}
+	});
+	
+	Timer reproduce2 = new Timer( 5000, new ActionListener() {
+		@Override
+		
+		public void actionPerformed(ActionEvent arg0) {
+			fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 2));
+		}
+	});
+
+	public void reproduce() {
+		reproduce1.start();
+		reproduce1.setRepeats(true);
+		reproduce2.start();
+		reproduce2.setRepeats(true);
+
+
+	}
+	
+	
+	
 	
 	public void paint(Graphics g) {
 		super.paintComponent(g);
@@ -81,21 +109,20 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 								one = "A Tropical Fish Has Eaten A Goldfish!";
 								three = two;
 								two = one; 
+								Fish.numKills2++; 
 								 
 							}
-							if(temp2.getType() == 3 ) { 
-								one = "A Shark Has Eaten A Tropical Fish!";
-								two = one; 
-								three = two; 
-							}
+							
 							
 						}
 						if(temp1.getType() == 2 ) { 
 							Fish.numType2--; 
 							if(temp2.getType() == 3 ) { 
 								one = "A Shark Has Eaten A Tropical Fish!";
+								Fish.numKills3++; 
 								two = one; 
 								three = two; 
+								
 							}
 						}
 					
@@ -113,12 +140,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 								one = "A Tropical Fish Has Eaten A Goldfish!";
 								two = one; 
 								three = two; 
+								Fish.numKills2++; 
 							}
-							if(temp1.getType() == 3 ) { 
-								one = "A Shark Has Eaten A Tropical Fish!";
-								two = one; 
-								three = two; 
-							}
+							
+							
 						}
 						if(temp2.getType() == 2 ) { 
 							Fish.numType2--; 
@@ -126,6 +151,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 								one = "A Shark Has Eaten A Tropical Fish!";
 								two = one; 
 								three = two; 
+								Fish.numKills3++; 
 							}
 						}
 					}
@@ -148,10 +174,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		g.drawString("Goldfish Population: " + Fish.numType1, 1010, 40);
 
 		g.drawString("Tropical Fish Population: " + + Fish.numType2, 1010, 70);
-		g.drawString("Tropical Fish Kills: ", 1010, 90);
+		g.drawString("Tropical Fish Kills: " + Fish.numKills2, 1010, 90);
 
 		g.drawString("Shark Population: " + + Fish.numType3, 1010, 120);
-		g.drawString("Shark Kills: ", 1010, 140);
+		g.drawString("Shark Kills: " + Fish.numKills3 , 1010, 140);
 		g2.setStroke(new BasicStroke(5));
 
 		g.drawString("Current Fish: " + current, 1050, 300 );
@@ -171,10 +197,11 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 
 	public static void main(String[] arg) {
 		Frame f = new Frame();
-
+		
 	}
 
 	public Frame() {
+		reproduce();
 		for(int i =0; i < 20; i++) {
 			fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
 		}

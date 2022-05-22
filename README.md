@@ -27,7 +27,7 @@ The player can also interfere with the simulation and decide to spawn certain fi
 
 ## Code and Format
 
-This game was coded in the Java Language in the Eclipse IDE, although any IDE can run the project as long as it can handle Java. 
+This simulation was coded in the Java Language in the Eclipse IDE, although any IDE can run the project as long as it can handle Java. 
 
 The resolution size of the UI interface is 1520 X 720 pixels. 
 

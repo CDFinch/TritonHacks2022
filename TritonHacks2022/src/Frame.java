@@ -60,12 +60,25 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 						&& (temp1.getX() <= temp2.getX()+temp2.width)
 						&& temp1.getY() + temp1.height >= temp2.getY()
 						&& temp1.getY() <= temp2.getY()+temp2.height) {
-					if(temp1.getType() > temp2.getType()) {
-						fishes.remove(second);
-					}
-					if(temp2.getType() > temp1.getType()) {
+					if((temp1.getType() == 1 && temp2.getType() == 2) || 
+							(temp1.getType() == 2 && temp2.getType() == 3) ) {
 						fishes.remove(first);
+						//Fish.kills++; 
+						
+						
 					}
+					if((temp1.getType() == 2 && temp2.getType() == 1) 
+							|| (temp1.getType() == 3 && temp2.getType() == 2)) {
+						fishes.remove(second);
+						//Fish.kills++; 
+					}
+					
+					
+				//fishy funk 
+//					if(temp1.getType() == temp2.getType() && temp1.getType() != 3 ) { 
+//						fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), temp1.getType()));
+//					}
+					
 					
 				}
 			}
@@ -105,10 +118,16 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	}
 
 	public Frame() {
-		fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
-		fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
-		fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
-		fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
+		for(int i =0; i < 20; i++) {
+			fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
+		}
+		for(int i =0; i < 3; i++) {
+			fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 2));
+		}
+		fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 3));
+		
+		
+		
 		JFrame f = new JFrame("Temp");
 		f.setSize(new Dimension(1520, 700));
 		f.setBackground(Color.blue);

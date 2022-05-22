@@ -39,6 +39,7 @@ public class Fish {
 	int width;
 	int height;
 	double multiplier;
+	private int type;
 	static int numFish = 0;
 	static int numType1 = 0;
 	static int numType2 = 0;
@@ -52,6 +53,7 @@ public class Fish {
 		init(x, y);
 		switch (type) {
 		case 1:
+			this.type = 1;
 			this.x = x;
 			this.y = y;
 			img = getImage("/imgs/lilFish.png");
@@ -61,6 +63,7 @@ public class Fish {
 			height = (int) (1120 * scale);
 			break;
 		case 2:
+			this.type = 2;
 			this.x = x;
 			this.y = y;
 			img = getImage("/imgs/tropicalFish.png");
@@ -70,6 +73,7 @@ public class Fish {
 			height = (int) (328 * scale);
 			break;
 		case 3:
+			this.type = 3;
 			this.x = x;
 			this.y = y;
 			img = getImage("/imgs/shark.png");
@@ -79,6 +83,7 @@ public class Fish {
 			height = (int) (326 * scale);
 			break;
 		default:
+			this.type = 2;
 			this.x = x;
 			this.y = y;
 			img = getImage("/imgs/tropicalFish.png");
@@ -179,5 +184,8 @@ public class Fish {
 
 	public void setY(double y) {
 		this.y = y;
+	}
+	public int getType() {
+		return type;
 	}
 }

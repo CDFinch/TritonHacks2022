@@ -60,7 +60,12 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 						&& (temp1.getX() <= temp2.getX()+temp2.width)
 						&& temp1.getY() + temp1.height >= temp2.getY()
 						&& temp1.getY() <= temp2.getY()+temp2.height) {
-					System.out.println("hit");
+					if(temp1.getType() > temp2.getType()) {
+						fishes.remove(second);
+					}
+					if(temp2.getType() > temp1.getType()) {
+						fishes.remove(first);
+					}
 					
 				}
 			}

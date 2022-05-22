@@ -30,7 +30,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Fish goldfish = new Fish(1020, 330,1); 
 	Fish tropicalFish = new Fish(1105, 330,4); 
 	Fish shark = new Fish(1190, 335,5); 
-	//Fish tropicalFish = new Fish(1020)s
+	//Fish tropicalFish = new Fish(1020)ss
 	
 	
 

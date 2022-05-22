@@ -18,6 +18,9 @@ Apex Predator Shark
 Coral Reef Background
 ![Reef](https://i.postimg.cc/gj3WdqW8/Reef.jpg)
 
+Full Simulation
+![Full Simulation](https://imgur.com/idjnKtK)
+
 
 The Ecosystem Statistics are located along the right of the frame, with catergories for the amount of kills held by a specific species as well as the total number of any given species. 
 

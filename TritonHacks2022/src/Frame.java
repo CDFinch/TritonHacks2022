@@ -342,7 +342,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 		
 		
-		JFrame f = new JFrame("Temp");
+		JFrame f = new JFrame("Fish Simulation");
 		f.setSize(new Dimension(1300, 650));
 		f.setBackground(Color.blue);
 		f.add(this);

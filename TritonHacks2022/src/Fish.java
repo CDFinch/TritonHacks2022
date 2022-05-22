@@ -31,8 +31,8 @@ public class Fish {
 	Random rnd = new Random();
 	private double x = 300;
 	private double y = 200;
-	double vx = 3;
-	double vy = 3;
+	double vx = 0;
+	double vy = 0;
 	double accx = -.1;
 	double accy = -.1;
 	private AffineTransform tx;
@@ -89,6 +89,21 @@ public class Fish {
 			height = (int) (326 * scale);
 			spdMultiplier = .8; 
 			break;
+		case 4: 
+			this.type = 4;
+			this.x = x;
+			this.y = y;
+			img = getImage("/imgs/tropicalFishS.png");
+			scale = 1;
+			break; 
+		case 5: 
+			this.type = 5;
+			this.x = x;
+			this.y = y;
+			img = getImage("/imgs/sharkS.png");
+			scale = 1;
+			break; 
+			 
 		default:
 			this.type = 2;
 			this.x = x;
@@ -110,20 +125,26 @@ public class Fish {
 		public void actionPerformed(ActionEvent arg0) {
 			vx = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
 			vy = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
+			
+			while(vx == 0 || vy == 0 ) { 
+				vx = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
+				vy = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
+			}
 
 			
 		}
 	});
 	
-	Timer reproduce = new Timer( 2000, new ActionListener() {
+	
+	
+	Timer moveCorner = new Timer( 1000, new ActionListener() {
 		@Override
 
 		public void actionPerformed(ActionEvent arg0) {
-			vx = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
-			vy = rnd.nextInt((3 + 3) + 1) - 3; // [-20, 20]
+			vx *= -1; 
+			vy *= -1; 
 
-			System.out.println(width);
-			System.out.println(height);
+			
 		}
 	});
 
@@ -133,6 +154,14 @@ public class Fish {
 		move.setRepeats(true);
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	public void incrMultiplier() {
 		multiplier += 0.2;
 	}
@@ -143,6 +172,11 @@ public class Fish {
 		// these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;
 
+		if((x <= 0 && y<= 0) || (x + width >= 1000 && y <= 0) || (x <= 0 && y + height>= 625) && (x + width >= 1000 && y + height>= 625)) { 
+			moveCorner.start();
+		}
+		
+		
 		if(vx > 0) {
 			switch (type) {
 			case 1:
@@ -175,7 +209,7 @@ public class Fish {
 //		vx = rnd.nextInt((3 + 3 ) + 1) - 3 ; // [-20, 20]
 //		vy = rnd.nextInt((3 + 3 ) + 1) - 3 ; // [-20, 20]
 
-		if (x + width > 1000) {
+		if (x + width > 1000 && x <1020) {
 			x = 1000 - width;
 		}
 		if (x < 0) {

@@ -27,6 +27,11 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	String one = "";
 	String two = ""; 
 	String three = ""; 
+	Fish goldfish = new Fish(1020, 330,1); 
+	Fish tropicalFish = new Fish(1105, 330,4); 
+	Fish shark = new Fish(1190, 335,5); 
+	//Fish tropicalFish = new Fish(1020)
+	
 	
 
 	ArrayList<Fish> fishes = new ArrayList<Fish>();
@@ -64,6 +69,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		background.paint(g);
+		goldfish.paint(g);
+		tropicalFish.paint(g);
+		shark.paint(g);
 
 		for (int i = 0; i < fishes.size(); i++) {
 			fishes.get(i).paint(g);
@@ -167,30 +175,35 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			}
 		}
 		
+		g.setColor(Color.BLACK);
+		g.setFont(new Font("Fish", Font.ITALIC, 20));
+		
+		g.drawString("ECOSYSTEM STATISTICS: " , 1010, 30);
+		
+		
+		g.setColor(Color.BLACK);
+		g.setFont(new Font("Fish", Font.ITALIC|Font.BOLD, 15));
 		
 		
 		
-		
-		g.drawString("Goldfish Population: " + Fish.numType1, 1010, 40);
+		g.drawString("Goldfish Population: " + Fish.numType1, 1010, 50);
 
-		g.drawString("Tropical Fish Population: " + + Fish.numType2, 1010, 70);
-		g.drawString("Tropical Fish Kills: " + Fish.numKills2, 1010, 90);
+		g.drawString("Tropical Fish Population: " + + Fish.numType2, 1010, 80);
+		g.drawString("Tropical Fish Kills: " + Fish.numKills2, 1010, 100);
 
-		g.drawString("Shark Population: " + + Fish.numType3, 1010, 120);
-		g.drawString("Shark Kills: " + Fish.numKills3 , 1010, 140);
+		g.drawString("Shark Population: " + + Fish.numType3, 1010, 130);
+		g.drawString("Shark Kills: " + Fish.numKills3 , 1010, 150);
 		g2.setStroke(new BasicStroke(5));
 
-		g.drawString("Current Fish: " + current, 1050, 300 );
-
         g.drawRect(1010, 320, 80, 50);
-        g.drawString("Goldfish", 1020, 350);
+       // g.drawString("Goldfish", 1020, 350);
 
         g.drawRect(1100, 320, 80, 50);
-        g.drawString("Tropical ", 1110, 345);
-        g.drawString("Fish ", 1120, 360);
+        //g.drawString("Tropical ", 1110, 345);
+        //g.drawString("Fish ", 1120, 360);
 
         g.drawRect(1190, 320, 80, 50);
-        g.drawString("Shark", 1200, 350);
+        //g.drawString("Shark", 1200, 350);
         
         g.drawRect(1010, 380, 260, 50);
         g.drawString("Spawn", 1110, 410);
@@ -202,6 +215,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	}
 
 	public Frame() {
+		Fish.numType1--;
 		reproduce();
 		for(int i =0; i < 20; i++) {
 			fishes.add(new Fish(rnd.nextInt((1000) + 1), rnd.nextInt((625) + 1), 1));
@@ -214,7 +228,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 		
 		JFrame f = new JFrame("Temp");
-		f.setSize(new Dimension(1520, 650));
+		f.setSize(new Dimension(1300, 650));
 		f.setBackground(Color.blue);
 		f.add(this);
 		f.setResizable(false);

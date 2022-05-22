@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -56,7 +57,7 @@ public class Fish {
 			this.type = 1;
 			this.x = x;
 			this.y = y;
-			img = getImage("/imgs/lilFish.png");
+			img = getImage("/imgs/lilFishR.png");
 			numType1++;
 			scale = 0.03;
 			width = (int) (1920 * scale);
@@ -66,7 +67,7 @@ public class Fish {
 			this.type = 2;
 			this.x = x;
 			this.y = y;
-			img = getImage("/imgs/tropicalFish.png");
+			img = getImage("/imgs/tropicalFishR.png");
 			numType2++;
 			scale = 0.1456753;
 			width = (int) (746 * scale);
@@ -76,7 +77,7 @@ public class Fish {
 			this.type = 3;
 			this.x = x;
 			this.y = y;
-			img = getImage("/imgs/shark.png");
+			img = getImage("/imgs/sharkR.png");
 			numType3++;
 			scale = 0.3;
 			width = (int) (1024 * scale);
@@ -95,7 +96,7 @@ public class Fish {
 		numFish++;
 
 	}
-
+	
 	Timer move = new Timer(1000, new ActionListener() {
 		@Override
 
@@ -121,6 +122,32 @@ public class Fish {
 		// these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;
 
+		if(vx > 0) {
+			switch (type) {
+			case 1:
+				img = getImage("/imgs/lilFishR.png");
+				break;
+			case 2:
+				img = getImage("/imgs/tropicalFishR.png");
+				break;
+			case 3:
+				img = getImage("/imgs/sharkR.png");
+			break;
+			}
+		}
+		if(vx < 0) {
+			switch (type) {
+			case 1:
+				img = getImage("/imgs/lilFishL.png");
+				break;
+			case 2:
+				img = getImage("/imgs/tropicalFishL.png");
+				break;
+			case 3:
+				img = getImage("/imgs/sharkL.png");
+			break;
+			}
+		}
 		x += vx * multiplier;
 		y += vy * multiplier;
 

@@ -48,4 +48,5 @@ Zachary Brower - zbrower03@gmail.com
 
 This project was coded at a high school hackathon called TritionHacks at UCSD from 5/21/2022 to 5/22/2022. 
 
+*Project Won 3rd Place* 
 

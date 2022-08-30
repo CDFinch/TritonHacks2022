@@ -19,7 +19,7 @@ Coral Reef Background
 ![Reef](https://i.postimg.cc/gj3WdqW8/Reef.jpg)
 
 Full Simulation
-![Full Simulation](https://i.postimg.cc/TY9kFYcr/unknown.png)
+![Full Simulation](https://i.postimg.cc/v8JZ0sNd/fish-simulation.png)
 
 
 The Ecosystem Statistics are located along the right of the frame, with catergories for the amount of kills held by a specific species as well as the total number of any given species. 
